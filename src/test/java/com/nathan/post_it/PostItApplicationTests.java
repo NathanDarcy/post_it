@@ -2,6 +2,7 @@ package com.nathan.post_it;
 
 import com.nathan.post_it.Entity.User;
 import com.nathan.post_it.Repository.UserRepository;
+import com.nathan.post_it.Service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class PostItApplicationTests {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Test
     public void contextLoads() {
@@ -20,9 +21,9 @@ public class PostItApplicationTests {
 
     @Test
     public void testUserDB() {
-        User testUser = userRepository.findUserByUsernameAndPassword("testUsername", "testPassword");
+        User testUser = userService.findUserByUsernameAndPassword("testUsername", "testPassword");
 
-        System.out.println("User: " + testUser.getUsername() + testUser.getPassword());
+        System.out.println("User: " + testUser.getUsername() + ": " + testUser.getPassword());
     }
 
 }
