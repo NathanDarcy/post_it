@@ -1,7 +1,6 @@
 package com.nathan.post_it;
 
 import com.nathan.post_it.Entity.User;
-import com.nathan.post_it.Repository.UserRepository;
 import com.nathan.post_it.Service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,8 +37,6 @@ public class PostItApplicationTests {
 
     @Test
     public void testBCrypt(){
-
-        String salt = "testSalt";
 
         String plain = "testPassword";
         String encoded = bCryptPasswordEncoder.encode(plain); //$2a$10$nCdnBnsHuIo7rrkXBdqdeOKClCdJFSwcREbyDbZc.s7P2mP/puLAO
