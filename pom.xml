@@ -54,6 +54,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Security dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- JSP
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
