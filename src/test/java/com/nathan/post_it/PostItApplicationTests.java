@@ -1,6 +1,8 @@
 package com.nathan.post_it;
 
+import com.nathan.post_it.Entity.Discussion;
 import com.nathan.post_it.Entity.User;
+import com.nathan.post_it.Service.DiscussionService;
 import com.nathan.post_it.Service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class PostItApplicationTests {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private DiscussionService discussionService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -32,6 +37,18 @@ public class PostItApplicationTests {
         }
         else {
             System.out.println("Password did not match");
+        }
+    }
+
+    @Test
+    public void getAllDiscussions(){
+        System.out.println("Attempting to gather all discussions.");
+        Iterable<Discussion> discussions = discussionService.findall();
+        System.out.println("Discussion query complete.");
+
+
+        for(Discussion d : discussions){
+            System.out.println(d.getTitle());
         }
     }
 
