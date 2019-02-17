@@ -11,6 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNull;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostItApplicationTests {
@@ -41,26 +45,12 @@ public class PostItApplicationTests {
     }
 
     @Test
-    public void getAllDiscussions(){
-        System.out.println("Attempting to gather all discussions.");
+    public void testFetchAllDiscussions(){
         Iterable<Discussion> discussions = discussionService.findall();
-        System.out.println("Discussion query complete.");
-
-
-        for(Discussion d : discussions){
-            System.out.println(d.getTitle());
-        }
+        assertNotNull("Discussion list populated", discussions );
     }
 
-    @Test
-    public void testBCrypt(){
 
-        String plain = "testPassword";
-        String encoded = bCryptPasswordEncoder.encode(plain); //$2a$10$nCdnBnsHuIo7rrkXBdqdeOKClCdJFSwcREbyDbZc.s7P2mP/puLAO
-
-        System.out.println("input : hash =" + plain + " : " + encoded);
-
-    }
 
 }
 
