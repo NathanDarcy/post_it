@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List All Discussions</title>
+</head>
+<body>
+
+    <h1>PostIt Discussion List</h1>
+
+    <div th:each="discussion: ${discussions}">
+        <hr/>
+        <h3 th:text="${discussion.title}" />
+        <p th:text="${discussion.content}" />
+        <hr/>
+    </div>
+
+</body>
+</html>
