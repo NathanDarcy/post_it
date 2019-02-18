@@ -14,4 +14,8 @@ public class DiscussionService {
     public Iterable<Discussion> findall(){
         return discussionRepository.findAll();
     }
+
+    public Discussion save(Discussion discussion){
+        return discussionRepository.save(discussion);
+    }
 }
