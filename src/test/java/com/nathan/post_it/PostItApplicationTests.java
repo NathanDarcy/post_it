@@ -35,7 +35,7 @@ public class PostItApplicationTests {
 
         User testUser = userService.findUserByUsername("testUsername");
 
-        // Check if user entered password ("testPassword") matches hash stored in DB
+        // Check if user entered password ("testPassword") matches hash stored in DB (in testUser Object)
         assert (bCryptPasswordEncoder.matches("testPassword", testUser.getPassword()));
     }
 
